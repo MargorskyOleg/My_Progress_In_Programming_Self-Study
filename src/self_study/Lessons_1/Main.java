@@ -19,6 +19,24 @@ public class Main {
 
 
 
+
+
+
+        char[] array = s.toCharArray();
+        char lett = 'e';
+        int count = 0;
+        for(char c: array){
+            if(c == lett)
+                count++;
+        }
+        System.out.println("Found " + count + "'" + lett + "'" +" letter");
+
+
+
+
+
+
+
         int index1 = s.indexOf("e");            //
         char[] let = new char[index1];
         while (index1 < s.length()){            //
@@ -30,6 +48,15 @@ public class Main {
             index1++;                           //
         }
         System.out.println(index1);                   //souf следуешия строка
+
+
+
+
+
+    //    char le == e;
+
+
+
 
         int a = 0;
         while(a < 10) {
