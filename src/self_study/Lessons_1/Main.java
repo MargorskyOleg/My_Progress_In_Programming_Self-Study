@@ -36,9 +36,9 @@ public class Main {
 //        System.out.print(result+" ");                 //:First, solve the problem. Then, write the code.
         int num2 = 0;
 //        System.out.print(num2+" ");                    //:1
-        while (num2 < result.indexOf("e",num2+1)) {                                                                                            //result.indexOf("e",num2)) { //: 22 22 22 22 22 22 22               result.length()){
-            num2 = result.indexOf("e",num2+1);
-            System.out.print(result.indexOf("e",num2) +" ");                //:2 3 4 5 6 7 8 9 10 11 12 13 14 15...
+        while (num2 < result.indexOf("e",num2+1)) {                                                       //result.indexOf("e",num2)) { //: 22 22 22 22 22 22 22               result.length()){
+        //    num2 = result.indexOf("e",num2+1);
+            System.out.print(num2 +" ");
 
 //            if(num2 == result.indexOf("e",num2)){
 //                System.out.print(num2+" ");              //:22 30 44 56 72 80 90
