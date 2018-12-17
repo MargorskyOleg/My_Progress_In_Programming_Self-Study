@@ -129,7 +129,7 @@ public class Main{
 
 //!тут я не пойму как что счем сравнивать, X с X или chars[x] с chars[x]?
 
-//                    } else if (chars[x] != chars[x] | chars[y] != chars[y]) {//тест прямоугольник. немогу сравнить координаты для прямоугольника!
+//                    } else if (chars[x] != chars[x] | chars[y] != chars[y]) {//тест прямоугольник. не пойму как сравнить координаты для прямоугольника!
 //                        System.out.println(x + " " + y);
 //                    } else if (y == y) {
 
