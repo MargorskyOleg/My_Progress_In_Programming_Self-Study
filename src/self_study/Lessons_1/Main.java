@@ -1,31 +1,27 @@
 package self_study.Lessons_1;
 
 public class Main {
-    // :First, solve the problem. Then, write the code.
-    // считает позиции всех букв "e"
-    // e :22 30 44 56 72 80 90
-    //FzirrBsDtP,m UsJoOlQvXef xtUhiep LpYr`oUbVlhe_mg.O WTshMeKnK,J nwhr^iotVeM ztRhQek McVo`dRer.W
 
-    public static void main(String[] args) {
+    public static void main(String [] args) {
         String s = "FzirrBsDtP,m UsJoOlQvXef xtUhiep LpYr`oUbVlhe_mg.O WTshMeKnK,J nwhr^iotVeM ztRhQek McVo`dRer.W";
 
-        int num = s.length();                                                                                           //число элиментов в num 94    спомошью length() можно подсчитать сколько символов встроке!
-        char[] letter = new char[num];                                                                                  //[a][.][.]... = 1 2 3...
-
-        for (int i = 0; i < num; i = i + 2) {                                                                           //+2 94->
-            letter[i] = s.charAt(i);                                                                                    //s.charAt(i); символ в указанной позиции;
-        }
-
-        System.out.print(letter);                                                                                       //:First, solve the problem. Then, write the code.
-        System.out.println();
-        String decryptionLetter = new String(letter);
-
+        String decryptionLetter = character(s);
         char e = 'e';
         сharacterSearchAndPrint(decryptionLetter,e);
     }
 
-    public static void character(){
+    public static String character(String s){
+        int num = s.length();
+        char[] letter = new char[num];
 
+        for (int i = 0; i < num; i = i + 2) {
+            letter[i] = s.charAt(i);
+        }
+
+        System.out.print(letter);
+        System.out.println();
+        String decryptionLetter = new String(letter);
+        return decryptionLetter;
     }
 
     public static void сharacterSearchAndPrint(String a,char b) {
@@ -36,6 +32,34 @@ public class Main {
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// :First, solve the problem. Then, write the code.
+// считает позиции всех букв "e"
+// e :22 30 44 56 72 80 90
+//FzirrBsDtP,m UsJoOlQvXef xtUhiep LpYr`oUbVlhe_mg.O WTshMeKnK,J nwhr^iotVeM ztRhQek McVo`dRer.W
+
+
+
+
+
 
 
 
@@ -58,17 +82,6 @@ public class Main {
 //        }                                                                                                             //+1 после нахожения индекса продолжыть поиск
 //    }
 //}
-
-
-
-
-
-
-
-
-
-
-
 
 
 
