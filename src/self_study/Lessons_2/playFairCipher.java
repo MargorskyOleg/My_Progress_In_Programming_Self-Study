@@ -1,4 +1,4 @@
-package self_study.Lessons_3;
+package self_study.Lessons_2;
 
 import self_study.Lessons_4.Main;
 
