@@ -60,8 +60,7 @@ public class playFairCipher extends Main {
         return str2;// _ F V S X H P P I T _ N X N S L O A M Y _ S L . X O X _ S B L R V P S G O S P E K X D V K T K V L L X S E
     }
 
-
-
+    
     //!тут проблема с методами bin или binary1 binary2 низнаю какой вариант люче, в них описаны проблемы!
 
     String encryptedMessage = new String();//>тут я остановился 18,12,2018 7:29

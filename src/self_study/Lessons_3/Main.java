@@ -46,17 +46,13 @@ public class Main{
 //                        System.out.print(x + " " + y + " ");//>1 2 4 0 2 1 3 3 0 0 3 2 1 3 2 2 0 0 2 1 3 1 4 0 0 0 1 1 0 0 2 5 1 0 2 1 2 3 3 3 1 2 2 2 0 2 1 1 2 1 2 5 1 1 1 4 0 1 1 3 1 4 4 2 0 1 0 2 0 3 0 4 0 2 0 5 0 1 2 5 1 1 1 2 0 2 1 3 1 1 1 4 1 3 2 2 2 1 3 0 0 2 1 4 0 3 2 1 1 2 2 2 1 3 3 2 1 4 3 4 1 4 2 0 0 1 1 3 1 4 3 2 0 0 3 3 1 3 1 4 0 3 2 2 0 2 1 4 1 2 1 3 0 0 2 5 0 3 2 0 1 5 2 2 2 1 2 4 2 2 2 4 1 3 3 2 1 1 1 5 2 1 2 3 1 3 1 5 0 0 3 2 1 1 1 4 1 3 1 4 0 5 2 1 0 4 1 3 2 0 2 1
 
 //!мне не понятней когда я нахожу два символа с разными координатами 'сверху строчка if (letter_1 == chars[x][y] | letter_2 == chars[x][y])', и я хочу видеть в консоли эти координаты двух
-//!символов мне достаточно написать один раз x и y вот так System.out.println(x + " " + y + " ") может мне символы искать по очереди одним каналом вот так if (letter_1 == chars[x][y])!
+//!символов мне достаточно написать один раз x и y вот так System.out.println(x + " " + y + " ") может мне символы искать поочедно одним каналом вот так if (letter_1 == chars[x][y])!
 
                         System.out.print(arrayChars[x][y]+" ");//>_ J X F P V S . P X H J P N P Y I X T F _ . O N X Y N L R S L W R O G A O M R Y N _ O S N L S . X U O L G X _ . S V L B L E R S L V P F S L G . O L _ S P Y G E K . X D . D S V N K X T S K P V N L S L M X A S E X
 
-//!тут я не пойму как что счем сравнивать, X с X или chars[x] с chars[x]?
+//!тут я не пойму что счем сравнивать, X с X или chars[x] с chars[x]?
 
-<<<<<<< HEAD
 //                    } else if (arrayChars[x] == arrayChars[x] | arrayChars[y] != arrayChars[y]) {//тест прямоугольник немогу сравнить координаты
-=======
-//                    } else if (chars[x] != chars[x] | chars[y] != chars[y]) {//тест прямоугольник. не пойму как сравнить координаты для прямоугольника!
->>>>>>> origin/Edit_Oleg
 //                        System.out.println(x + " " + y);
 //                    } else if (y == y) {
 
