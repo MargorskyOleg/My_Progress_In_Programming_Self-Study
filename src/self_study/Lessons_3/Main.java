@@ -3,33 +3,67 @@ package self_study.Lessons_3;
 //Вариант 2 Шифр Плейфера
 public class Main{
 
+    //it is better to declare and assign 'important' constants here
+    //then just use them where we need
+
+    private static final String ENCRYPTED_MESSAGE = "J_XFPV.SPXJHNPYPXIFT._ONYXLNRSWLROGAOMRYN_OSNLS.UXLOGX._VSLBELSRLVFPLS.GLO_SYPGE.KDX.DSVNKXTSKPVNLSLMXASXE";
+
+    private static final char[][] CIPHER_TABLE  = {                      //                  x               x     координаты
+        {'P', 'R', 'O', 'G', 'A', 'M'}, //   0 1 2 3 4 5  y P R O G A M  y 00 01 02 03 04 05
+        {'I', 'N', '_', 'S', 'L', 'K'}, //   1 2 3 4 5 6    I N _ S L K    10 11 12 13 14 15
+        {'E', 'X', '.', 'T', 'D', 'Y'}, //   2 3 4 5 6 7    E X . T D Y    20 21 22 23 24 25
+        {'U', 'H', 'V', 'F', 'B', 'C'}, //   3 4 5 6 7 8    U H V F B C    30 31 32 33 34 35
+        {'J', 'Q', 'W', 'Z', ',', '?'}  //   4 5 6 7 8 9    J Q W Z , ?    40 41 42 43 44 45
+    };
+
     public static void main(String[] args) {
 
-        String encryptedMessage = "J_XFPV.SPXJHNPYPXIFT._ONYXLNRSWLROGAOMRYN_OSNLS.UXLOGX._VSLBELSRLVFPLS.GLO_SYPGE.KDX.DSVNKXTSKPVNLSLMXASXE";
-        String messages = decoded(encryptedMessage);
+        //let's check pairs of symbols first
+
+        PlayFairDecoder decoder = new PlayFairDecoder(CIPHER_TABLE); // creating decoder instance
+
+        decoder.printPairsOfSymbolsAndIndexes(ENCRYPTED_MESSAGE); // this method works well ;)
+
+
+        //actually we don't need this varibale any more as we declared constant ENCRYPTED_MESSAGE
+        //String encryptedMessage = "J_XFPV.SPXJHNPYPXIFT._ONYXLNRSWLROGAOMRYN_OSNLS.UXLOGX._VSLBELSRLVFPLS.GLO_SYPGE.KDX.DSVNKXTSKPVNLSLMXASXE";
+
+
+        //String decodedMessage = decoded(encryptedMessage); //Why variable was named messageS ('s' on the end is mean plural form), it should be just message or even better decodedMessage
+
+        //System.out.println("\n\n--- Result of decoded method ---");
+        //System.out.println(decodedMessage);
     }
 
-    private static String decoded(String a) {//метод раскодировки
+    //actually a is not so imformative name for the argument variable
+    //better to use encodedString or encryptedString or just originalString (as method named decode it should be clear what is original string)
+    private static String decoded(String encryptedString) {//метод раскодировки
 
         int i = 0;
         int j = 1;
         int b = 2;
-        int num = a.length();
+        //int num = a.length(); //why do you need variable num? You can use just a.length everywhere
         char letter_1;
         char letter_2;
         char n = '\n';
 //!тут я уже психанул с методами разбиение строки на символы, и матрицу вложил прям в цыкол тут работает разбиение строки на символы как надо я так думаю!!! тогда осталось дело, сравнения координатами массива!
-        while (i < num) {
+        while (i < encryptedString.length()) {
 //            System.out.println(" letter_1_i: "+a.charAt(i)+"    "+" index_i: "+i+n  //> letter_1_i: J     index_i: 0
 //                              +" letter_2_j: "+a.charAt(j)+"    "+" index_j: "+j);  //> letter_2_j: _     index_j: 1
 //            System.out.println(" ");
 
 //            System.out.print(""+a.charAt(i)+a.charAt(j)+" "); //> J_ XF PV .S PX JH NP YP XI FT ._ ON YX LN RS WL RO GA OM RY N_ OS NL S. UX LO GX ._ VS LB EL SR LV FP LS .G LO _S YP GE .K DX .D SV NK XT SK PV NL SL MX AS XE
 
-            letter_1 = a.charAt(i);
+            letter_1 = encryptedString.charAt(i);
             i = i + b;
-            letter_2 = a.charAt(j);
+            letter_2 = encryptedString.charAt(j);
             j = j + b;
+
+            //let's check pair of symbols from encrypted string :)
+            //System.out.println("Pair of symbols from encrypted string: " + letter_1 + letter_2);
+            //XF PV ... where are first symbols? Upssss.
+
+            //Let's try to do it differently
 
             char[][] arrayChars = {                      //                  x               x     координаты
                     {'P', 'R', 'O', 'G', 'A', 'M'}, //   0 1 2 3 4 5  y P R O G A M  y 00 01 02 03 04 05
