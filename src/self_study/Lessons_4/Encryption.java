@@ -58,9 +58,9 @@ public class Encryption {//шифрование
                 newString += second;
             }
             if(first == second){
-                if(first == x | second == x){
-
-                }
+//                if(first == x | second == x){
+//
+//                }
                 newString += x;
             }
         }
