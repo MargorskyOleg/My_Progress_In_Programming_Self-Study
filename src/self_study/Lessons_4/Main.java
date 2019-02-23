@@ -7,7 +7,7 @@ public class Main {
     private static char[][] MATRIXTABLE = new char[ROW][COL];
     private static final String MESSAGEDECRYPTION = "";
     private static String MESSAGEENCRYPT = "";
-    private static final String KEYWORD = "trident";//trident трезубец
+    private static final String KEYWORD = "";
     private static final String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ.,_?";
 
     public static void main(String[] args) {
@@ -29,6 +29,3 @@ public class Main {
 //        return scan.next();
 //    }
 }
-
-//How do you think, is it possible to decipher all the DNA,to understand the principle of each protein in living cells, machine learning? if at all this is an actual question!
-//GP_EEM?ZLWYECNRP_?RU.EEYJPUQRCOIYEWEENLCXPNIYGPUYEGN,ETHYDWEXIENBZAJTEYEGN?OIDIHNLOIEWG,TGFA?OEKRNDT.EE?UCUDEH.GIOKU_?JFFADTGEOIBTTDEHY?DCYGEYCJO.NARU.EWZHTYGAIQCO.SVRWRDPE
