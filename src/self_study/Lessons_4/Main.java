@@ -1,5 +1,7 @@
 package self_study.Lessons_4;
 
+import java.util.Arrays;
+
 public class Main {
 
     private static final int ROW = 5;//строка
@@ -12,6 +14,42 @@ public class Main {
 
     public static void main(String[] args) {
 
+        System.out.println("Source string");
+        System.out.println(MESSAGEENCRYPT);
+
+
+        System.out.println("\nSame symbol in each pair replaced by 'X'");
+        String resultString = SameSymbolReplacerInThePair.replaceSameSymbolInThePair(MESSAGEENCRYPT);
+
+        System.out.println(resultString);
+        String[] pairsArray = SameSymbolReplacerInThePair.splitAsPairs(resultString);
+        System.out.println(Arrays.toString(pairsArray));
+
+
+        String demoStr = "Hello world";
+        System.out.println("\nSource string");
+        System.out.println(demoStr);
+
+
+        System.out.println("\nSame symbol in each pair replaced by 'X'");
+        resultString = SameSymbolReplacerInThePair.replaceSameSymbolInThePair(demoStr);
+
+        System.out.println(resultString);
+        pairsArray = SameSymbolReplacerInThePair.splitAsPairs(resultString);
+        System.out.println(Arrays.toString(pairsArray));
+
+        demoStr = "Hidethegoldinthetreestump"; //https://en.wikipedia.org/wiki/Playfair_cipher
+        System.out.println("\nSource string");
+        System.out.println(demoStr);
+
+        System.out.println("\nSame symbol in each pair replaced by 'X'");
+        resultString = SameSymbolReplacerInThePair.replaceSameSymbolInThePair(demoStr);
+
+        System.out.println(resultString);
+        pairsArray = SameSymbolReplacerInThePair.splitAsPairs(resultString);
+        System.out.println(Arrays.toString(pairsArray));
+
+        /*
         KeyWordProcessing keyWordProcessing = new KeyWordProcessing(MATRIXTABLE);
         keyWordProcessing.handlerKeyWord(KEYWORD + ALPHABET);
 
@@ -20,6 +58,7 @@ public class Main {
 
         Encryption encryption = new Encryption(MATRIXTABLE);//шифрование
         encryption.divideTheLineIntoPairs(MESSAGEENCRYPT);
+        */
     }
 
 //    private static String keyboard(String encryption) {
