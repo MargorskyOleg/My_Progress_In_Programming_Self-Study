@@ -21,7 +21,7 @@ public class PlayFairDecoder {
     //actually we don't need method to print pairs of symbols and their indexes
     //but it is good for educational purposes
 
-    public void printPairsOfSymbolsAndIndexes(String originalString){
+        public void printPairsOfSymbolsAndIndexes(String originalString){
         for(int i = 0; i < originalString.length() - 1; i += 2){
 
             Character firstChar = originalString.charAt(i);
