@@ -6,13 +6,12 @@ public class Main {
     private static final int COL = 6;//колонка
     private static char[][] MATRIXTABLE = new char[ROW][COL];
     private static final String MESSAGEDECRYPTION = "";
-    private static String MESSAGEENCRYPT = "";
-    private static final String KEYWORD = "";
+    private static final String MESSAGEENCRYPT = "oleeuuuuxxP";
+    private static final String KEYWORD = "trident";//trident трезубец
     private static final String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ.,_?";
 
     public static void main(String[] args) {
 
-        ;
         KeyWordProcessing keyWordProcessing = new KeyWordProcessing(MATRIXTABLE);
         keyWordProcessing.handlerKeyWord(KEYWORD + ALPHABET);
 
