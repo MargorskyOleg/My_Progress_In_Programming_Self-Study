@@ -76,6 +76,7 @@ public class Transcript {//расшифровка
 
     private void decodedCharactersConvertString(Character character){
         String string = Character.toString(character);
-//        System.out.print(string);
+        System.out.print(string);
+
     }
 }
