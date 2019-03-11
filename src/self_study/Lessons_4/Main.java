@@ -27,6 +27,7 @@ public class Main {
         transcript.divideTheLineIntoPairs(MESSAGEDECRYPTION);
 
     }
+
 //    private static String keyboard(String encryption) {
 //        System.out.print(encryption + ": ");
 //        Scanner scan = new Scanner(System.in);

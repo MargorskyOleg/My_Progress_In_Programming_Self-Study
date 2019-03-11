@@ -64,7 +64,6 @@ public class Encryption {//шифрование
     private String stringX(String string){
         String newString = new String();
         char x = 'X';
-
 //        System.out.println(string.length()%2 +"!="+0);
         newString += string;
         if(string.length()%2 != 0){
