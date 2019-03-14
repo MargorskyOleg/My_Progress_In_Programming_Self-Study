@@ -10,4 +10,3 @@ public class IndexRowCol {
         Col = col;
     }
 }
-

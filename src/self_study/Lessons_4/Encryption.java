@@ -1,11 +1,15 @@
 package self_study.Lessons_4;
 
-public class Encryption {//шифрование
+public class Encryption{
 
     private char[][] matrixtable;
+    private int ROW;
+    private int COL;
 
-    public Encryption(char[][] matrixtable) {
-        this.matrixtable=matrixtable;
+    public Encryption(char[][] matrixtable,int ROW,int COL) {
+        this.matrixtable = matrixtable;
+        this.ROW = ROW - 1;
+        this.COL = COL - 1;
     }
 
     private IndexRowCol findCouplesSymbolInMatrix(Character character){
@@ -19,7 +23,7 @@ public class Encryption {//шифрование
         return null;
     }
 
-    public void divideTheLineIntoPairs(String messageEncrypt) {//OLEEUUUUXXP
+    public void divideTheLineIntoPairs(String messageEncrypt) {
         String newString = new String();
         for(int i = 0;i < messageEncrypt.length() ;i+=1){
             Character character = messageEncrypt.charAt(i);
@@ -27,7 +31,6 @@ public class Encryption {//шифрование
             Character charactertoUpperCase = Character.toUpperCase(characterUnderscore);
             newString += Character.toString(charactertoUpperCase);
         }
-//        System.out.println(newString);
         ifTwoCaracterLineAddX(newString);
     }
 
@@ -40,7 +43,7 @@ public class Encryption {//шифрование
         return character;
     }
 
-    public String ifTwoCaracterLineAddX(String messageEncrypt) {//вариант 1
+    private String ifTwoCaracterLineAddX(String messageEncrypt) {
         String newString = new String();
         char x = 'X';
         for(int i = 0; i < messageEncrypt.length();i++){
@@ -53,35 +56,27 @@ public class Encryption {//шифрование
                     newString += messageEncrypt.charAt(i+1);
                     i+=1;
                 }
-//            }else {
-//                i++;
             }
         }
-//        System.out.println("если в паре одинаковые символы то в ставить межу X: "+newString);
         return stringX(newString);
     }
 
     private String stringX(String string){
         String newString = new String();
         char x = 'X';
-//        System.out.println(string.length()%2 +"!="+0);
         newString += string;
         if(string.length()%2 != 0){
             newString += x;
         }
-
-//        System.out.println("если не парная строка добвляем в конце X: "+newString);
         return findTheSameCharacters(newString);
     }
 
-    public String findTheSameCharacters(String stringMessageEncrypt){
+    private String findTheSameCharacters(String stringMessageEncrypt){
         for(int i = 0;i < stringMessageEncrypt.length() -1;i+=2){
             Character first = stringMessageEncrypt.charAt(i);
             Character second = stringMessageEncrypt.charAt(i+1);
-
             IndexRowCol firstindex = findCouplesSymbolInMatrix(first);
             IndexRowCol secondindex = findCouplesSymbolInMatrix(second);
-
             assert firstindex != null;
             assert secondindex != null;
             permutationOfMatrixCharacters(firstindex,secondindex);
@@ -103,30 +98,30 @@ public class Encryption {//шифрование
                     decodedCharactersConvertString(matrixtable[secondindex.Row][secondindex.Col+1]);
                 }
             }
-            if(firstindex.Col == 5) {
-                decodedCharactersConvertString(matrixtable[firstindex.Row][firstindex.Col-5]);
+            if(firstindex.Col == COL) {
+                decodedCharactersConvertString(matrixtable[firstindex.Row][firstindex.Col-COL]);
                 decodedCharactersConvertString(matrixtable[secondindex.Row][secondindex.Col+1]);
             }
-            if(secondindex.Col == 5){
+            if(secondindex.Col == COL){
                 decodedCharactersConvertString(matrixtable[firstindex.Row][firstindex.Col+1]);
-                decodedCharactersConvertString(matrixtable[secondindex.Row][secondindex.Col-5]);
+                decodedCharactersConvertString(matrixtable[secondindex.Row][secondindex.Col-COL]);
             }
         }
         if(firstindex.Col == secondindex.Col){//вертикаль
-            if(firstindex.Row != 4){
-                if(secondindex.Row != 4){
+            if(firstindex.Row != ROW){
+                if(secondindex.Row != ROW){
                     decodedCharactersConvertString(matrixtable[firstindex.Row+1][firstindex.Col]);
                     decodedCharactersConvertString(matrixtable[secondindex.Row+1][secondindex.Col]);
                 }
             }
-            if(firstindex.Row == 4) {
-                decodedCharactersConvertString(matrixtable[firstindex.Row-4][firstindex.Col]);
+            if(firstindex.Row == ROW) {
+                decodedCharactersConvertString(matrixtable[firstindex.Row-ROW][firstindex.Col]);
                 decodedCharactersConvertString(matrixtable[secondindex.Row+1][secondindex.Col]);
 
             }
-            if(secondindex.Row == 4){
+            if(secondindex.Row == ROW){
                 decodedCharactersConvertString(matrixtable[firstindex.Row+1][firstindex.Col]);
-                decodedCharactersConvertString(matrixtable[secondindex.Row-4][secondindex.Col]);
+                decodedCharactersConvertString(matrixtable[secondindex.Row-ROW][secondindex.Col]);
             }
         }
     }

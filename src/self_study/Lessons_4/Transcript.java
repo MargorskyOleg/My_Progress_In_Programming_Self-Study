@@ -1,11 +1,15 @@
 package self_study.Lessons_4;
 
-public class Transcript {//расшифровка
+public class Transcript {
 
     private char[][] matrixtable;
+    private int ROW;
+    private int COL;
 
-    public Transcript(char[][] matrixtable) {
+    public Transcript(char[][] matrixtable,int ROW,int COL) {
         this.matrixtable=matrixtable;
+        this.ROW = ROW - 1;
+        this.COL = COL - 1;
     }
 
     private IndexRowCol findCouplesSymbolInMatrix(Character character){
@@ -23,10 +27,8 @@ public class Transcript {//расшифровка
         for(int i = 0;i < messageDecryption.length() -1;i+=2){
             Character firstCharacter = messageDecryption.charAt(i);
             Character secondCharacter = messageDecryption.charAt(i+1);
-
             IndexRowCol firstindex = findCouplesSymbolInMatrix(firstCharacter);
             IndexRowCol secondindex = findCouplesSymbolInMatrix(secondCharacter);
-
             assert firstindex != null;
             assert secondindex != null;
             permutationOfMatrixCharacters(firstindex,secondindex);
@@ -34,7 +36,7 @@ public class Transcript {//расшифровка
     }
 
     private void permutationOfMatrixCharacters(IndexRowCol firstindex, IndexRowCol secondindex){
-        if(firstindex.Row != secondindex.Row){
+        if(firstindex.Row != secondindex.Row){//прямоугольник
             if(firstindex.Col != secondindex.Col){
                 decodedCharactersConvertString(matrixtable[firstindex.Row][secondindex.Col]);
                 decodedCharactersConvertString(matrixtable[secondindex.Row][firstindex.Col]);
@@ -48,12 +50,14 @@ public class Transcript {//расшифровка
                 }
             }
             if(firstindex.Col == 0){
-                decodedCharactersConvertString(matrixtable[firstindex.Row][firstindex.Col+matrixtable.length]);
+                decodedCharactersConvertString(matrixtable[firstindex.Row][firstindex.Col+COL]);
                 decodedCharactersConvertString(matrixtable[secondindex.Row][secondindex.Col-1]);
+                System.out.println(matrixtable.length);
             }
             if(secondindex.Col == 0){
                 decodedCharactersConvertString(matrixtable[firstindex.Row][firstindex.Col-1]);
-                decodedCharactersConvertString(matrixtable[secondindex.Row][secondindex.Col+matrixtable.length]);
+                decodedCharactersConvertString(matrixtable[secondindex.Row][secondindex.Col+COL]);
+
             }
         }
         if(firstindex.Col == secondindex.Col){//вертикаль
@@ -64,12 +68,13 @@ public class Transcript {//расшифровка
                 }
             }
             if(firstindex.Row == 0){
-                decodedCharactersConvertString(matrixtable[firstindex.Row+4][firstindex.Col]);
+                decodedCharactersConvertString(matrixtable[firstindex.Row+ROW][firstindex.Col]);
                 decodedCharactersConvertString(matrixtable[secondindex.Row-1][secondindex.Col]);
+
             }
             if(secondindex.Row == 0){
                 decodedCharactersConvertString(matrixtable[firstindex.Row-1][firstindex.Col]);
-                decodedCharactersConvertString(matrixtable[secondindex.Row+4][secondindex.Col]);
+                decodedCharactersConvertString(matrixtable[secondindex.Row+ROW][secondindex.Col]);
             }
         }
     }

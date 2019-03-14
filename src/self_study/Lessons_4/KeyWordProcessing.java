@@ -1,6 +1,6 @@
 package self_study.Lessons_4;
 
-public class KeyWordProcessing {//Обработка ключевых слов
+public class KeyWordProcessing {
 
     private char[][] matrixtable;
 
