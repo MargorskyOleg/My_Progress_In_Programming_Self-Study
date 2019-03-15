@@ -32,12 +32,17 @@ public class Main {
         }
     }
 
+    //to correctly quit app this method should finally returns to main
     public static void theChoiceActions(){
         char E = 'E',T = 'T',Q = 'Q',M = 'M';
-        while (true) {
+        boolean isAppContinue = true; // to perform 'choices' loop till user decided to quit
+        while (isAppContinue) {
             System.out.print("Encrypt\t\t = E\n" + "Decrypt\t\t = T\n" + "Show Matrix  = M\n" + "Quite\t\t = Q\n" + "ChoiceNextChar:");
             String stScan = keyboard();
-            Character charScan = stScan.charAt(0);
+
+            // making input UPPERCASE all the time to allow user to use for choices lowercase and UPPERCASE symbols
+            Character charScan = Character.toUpperCase(stScan.charAt(0));
+
             if (E == charScan) {
                 keyWordProcessing();
                 Encryption();
@@ -51,27 +56,31 @@ public class Main {
                 testMatrix();
             }
             if (Q == charScan) {
-                quite();
+                isAppContinue = toContinueOrQuite(); //Method name changed as new na,e better descibes method functionality
             }
             System.out.println("\n");
         }
     }
 
-    public static void quite(){
+    //it is better to return value than calling other method which previously called this one
+    //potential problems with jard to manage and hard to debug
+    public static boolean toContinueOrQuite(){
         char Y = 'Y';//Yes
         char N = 'N';//No
         System.out.print("\nare you sure you want to go out\n"+"Yes click = Y\n"+"No  click = N\n"+"Quite:");
         while (true){
             Scanner scanner1 = new Scanner(System.in);
             String stScan = scanner1.nextLine();
-            Character charScan = stScan.charAt(0);
+            Character charScan =  Character.toUpperCase(stScan.charAt(0)); //making input UPPERCASE for end-user confort
             System.out.println();
 
             if(Y == charScan){
-                scanner1.close();
+                return false; // true is mean to Continue, false - not to continue
+                //scanner1.close(); //not sure scanner close is important here in case we properly return from this method
             }
             if(N == charScan){
-                startNextKey();
+                return true; // true is mean to continue
+                //startNextKey(); // it was bad practice to call methods from method previously calledmamam
             }
         }
     }
@@ -95,7 +104,9 @@ public class Main {
         Encryption encryption = new Encryption(MATRIXTABLE, ROW, COL);//шифрование
         encryption.divideTheLineIntoPairs(MESSAGEENCRYPT);
         System.out.println("\n");
-        startNextKey();
+
+        //startNextKey(); //again !!! you are calling method which called this one BAD BAD BAD!!!
+        //you just simply need to return to main
     }
 
     private static void Transcript(){
@@ -106,7 +117,7 @@ public class Main {
         Transcript transcript = new Transcript(MATRIXTABLE, ROW, COL);//расшифровка
         transcript.divideTheLineIntoPairs(MESSAGEDECRYPTION);
         System.out.println("\n");
-        startNextKey();
+       // startNextKey(); the same problem as Encryption
     }
 
     private static void testMatrix(){
