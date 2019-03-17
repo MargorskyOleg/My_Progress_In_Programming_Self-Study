@@ -5,6 +5,7 @@ public class Encryption{
     private char[][] matrixtable;
     private int ROW;
     private int COL;
+    private final char charX = 'X';
 
     public Encryption(char[][] matrixtable,int ROW,int COL) {
         this.matrixtable = matrixtable;
@@ -23,35 +24,23 @@ public class Encryption{
         return null;
     }
 
-    public void divideTheLineIntoPairs(String messageEncrypt) {
-        String newString = new String();
+    public String divideTheLineIntoPairs(String messageEncrypt) {
+        StringBuilder newString = new StringBuilder();
         for(int i = 0;i < messageEncrypt.length() ;i+=1){
             Character character = messageEncrypt.charAt(i);
-            Character characterUnderscore = underscore(character);
-            Character charactertoUpperCase = Character.toUpperCase(characterUnderscore);
-            newString += Character.toString(charactertoUpperCase);
+            Character charactertoUpperCase = Character.toUpperCase(character);
+            newString.append(Character.toString(charactertoUpperCase));
         }
-        ifTwoCaracterLineAddX(newString);
-    }
-
-    private Character underscore(Character character){
-        char underscore = '_';
-        char space = ' ';
-        if(character == space){
-            return underscore;
-        }
-        return character;
+        return ifTwoCaracterLineAddX(newString.toString());
     }
 
     private String ifTwoCaracterLineAddX(String messageEncrypt) {
-        String newString = new String();
-        char x = 'X';
+        String newString = "";
         for(int i = 0; i < messageEncrypt.length();i++){
             newString += messageEncrypt.charAt(i);
-
             if(i < messageEncrypt.length()-1){
                 if(messageEncrypt.charAt(i) == messageEncrypt.charAt(i+1)){
-                    newString += x;
+                    newString += charX;
                 }else {
                     newString += messageEncrypt.charAt(i+1);
                     i+=1;
@@ -62,11 +51,10 @@ public class Encryption{
     }
 
     private String stringX(String string){
-        String newString = new String();
-        char x = 'X';
+        String newString = "";
         newString += string;
         if(string.length()%2 != 0){
-            newString += x;
+            newString += charX;
         }
         return findTheSameCharacters(newString);
     }
@@ -126,7 +114,7 @@ public class Encryption{
         }
     }
 
-    private void decodedCharactersConvertString(Character character){
+    public void decodedCharactersConvertString(Character character){
         String string = Character.toString(character);
         System.out.print(string);
     }

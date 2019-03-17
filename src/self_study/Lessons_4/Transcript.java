@@ -24,6 +24,7 @@ public class Transcript {
     }
 
     public void divideTheLineIntoPairs(String messageDecryption) {
+        messageDecryption = messageDecryption.toUpperCase();
         for(int i = 0;i < messageDecryption.length() -1;i+=2){
             Character firstCharacter = messageDecryption.charAt(i);
             Character secondCharacter = messageDecryption.charAt(i+1);
@@ -52,7 +53,6 @@ public class Transcript {
             if(firstindex.Col == 0){
                 decodedCharactersConvertString(matrixtable[firstindex.Row][firstindex.Col+COL]);
                 decodedCharactersConvertString(matrixtable[secondindex.Row][secondindex.Col-1]);
-                System.out.println(matrixtable.length);
             }
             if(secondindex.Col == 0){
                 decodedCharactersConvertString(matrixtable[firstindex.Row][firstindex.Col-1]);
